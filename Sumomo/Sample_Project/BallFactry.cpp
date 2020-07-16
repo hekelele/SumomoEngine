@@ -5,7 +5,7 @@ GameObject* BallFactry::makeBall(float radius, float e, Vector3 beginVelocity, V
 {
 	GameObject* cs = new GameObject();
 
-	Circle* c = new Circle(radius, Color(0, 0, 0), radius/50.0*3, Color(255, 255, 255));
+	Circle* c = new Circle(radius, Color(0, 0, 0), radius/50.0f*3, Color(255, 255, 255));
 	cs->appendBehaviour(c);
 
 	Dynamic* dm = new Dynamic();

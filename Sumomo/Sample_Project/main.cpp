@@ -143,6 +143,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			renderManager.Draw(hMemDC);
 		}
 
+
 		SetStretchBltMode(hDC,HALFTONE);
 		StretchBlt(hDC, 0, 0, cxclient, cyclient, hMemDC, 0, 0, 800, 600, SRCCOPY);
 

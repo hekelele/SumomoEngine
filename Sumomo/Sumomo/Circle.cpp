@@ -18,9 +18,11 @@ void Circle::Draw(HDC hDC)
 
 	SelectObject(hDC, hPen);
 	SelectObject(hDC, hBrush);
-
-	Ellipse(hDC, int(this->gameObject->transform.position.x - this->radius), 
-		int(this->gameObject->transform.position.y - this->radius),
-		int(this->gameObject->transform.position.x + this->radius),
-		int(this->gameObject->transform.position.y + this->radius));
+	Vector3 pos = this->gameObject->transform.position;
+	Ellipse(hDC, int(pos.x - this->radius),
+		int(pos.y - this->radius),
+		int(pos.x + this->radius),
+		int(pos.y + this->radius));
+	MoveToEx(hDC, int(pos.x), int(pos.y), NULL);
+	LineTo(hDC, int(pos.x), int(pos.y - this->radius));
 }
