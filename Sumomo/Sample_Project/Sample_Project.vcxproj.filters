@@ -18,24 +18,18 @@
     <ClCompile Include="main.cpp">
       <Filter>source files</Filter>
     </ClCompile>
-    <ClCompile Include="scripts.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
-    <ClCompile Include="BallFactry.cpp">
-      <Filter>source files</Filter>
-    </ClCompile>
     <ClCompile Include="BorderConstrain.cpp">
+      <Filter>source files</Filter>
+    </ClCompile>
+    <ClCompile Include="BallGame.cpp">
       <Filter>source files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="scripts.h">
-      <Filter>header files</Filter>
-    </ClInclude>
-    <ClInclude Include="BallFactry.h">
-      <Filter>header files</Filter>
-    </ClInclude>
     <ClInclude Include="BorderConstrain.h">
+      <Filter>header files</Filter>
+    </ClInclude>
+    <ClInclude Include="BallGame.h">
       <Filter>header files</Filter>
     </ClInclude>
   </ItemGroup>

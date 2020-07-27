@@ -152,15 +152,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BallFactry.cpp" />
+    <ClCompile Include="BallGame.cpp" />
     <ClCompile Include="BorderConstrain.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="scripts.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BallFactry.h" />
+    <ClInclude Include="BallGame.h" />
     <ClInclude Include="BorderConstrain.h" />
-    <ClInclude Include="scripts.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,6 @@
 ﻿#include "Collidable.h"
-#include "main.h"
+#include "SumomoGame.h"
+using namespace Sumomo;
 
 Collidable::Collidable()
 {

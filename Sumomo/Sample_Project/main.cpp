@@ -6,10 +6,15 @@
 //=============================================================================
 #include <windows.h>
 #include <math.h>
-#include "main.h"
-#include "scripts.h"
+#include "SumomoGame.h"
 #include <iostream>
+#include "BallGame.h"
 using namespace std;
+using namespace Sumomo;
+
+#include <Gdiplus.h>
+using namespace Gdiplus;
+#pragma comment(lib, "Gdiplus.lib")
 
 //*****************************************************************************
 // Macro
@@ -36,8 +41,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 // Global Variables:
 //*****************************************************************************
 
-RenderingManager renderManager;
-PhysicsManager phyManager;
+SumomoGame* myGame;
 
 //=============================================================================
 // Main Function
@@ -80,8 +84,8 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		NULL,
 		hInstance,				// Application Instance Handler
 		NULL);					// Window Data
-
-	initGame();
+	myGame = (SumomoGame*)(new BallGame(hInstance));
+	myGame->initGame();
 	
 	// Show Window
 	ShowWindow(hWnd, nCmdShow);
@@ -95,7 +99,9 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		DispatchMessage(&msg);
 	}
 
-	//endGame();
+	myGame->endGame();
+	delete(myGame);
+
 	// Unregister Window Class
 	UnregisterClass(CLASS_NAME, wcex.hInstance);
 
@@ -139,7 +145,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		hBitmap = CreateCompatibleBitmap(hDC, renderManager.width, renderManager.height);
 		hPreBmp = (HBITMAP)SelectObject(hMemDC, hBitmap);
 
-		if (running) {
+		if (myGame->isRunning()) {
 			renderManager.Draw(hMemDC);
 		}
 
@@ -160,7 +166,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		t++;
 		InvalidateRect(hWnd, NULL, TRUE);
 
-		if (running) {
+		if (myGame->isRunning()) {
 			phyManager.Update();
 			// GameObject(s) Update
 			for (unsigned int i = 0; i < GameObjectList.size(); i++) {

@@ -1,6 +1,6 @@
 ﻿#include "Circle.h"
 
-Circle::Circle(float _radius, Color penColor, float penSize, Color brushColor) :
+Circle::Circle(float _radius, Color255 penColor, float penSize, Color255 brushColor) :
 	VectorGraph(penColor, penSize, brushColor)
 {
 	this->radius = _radius;

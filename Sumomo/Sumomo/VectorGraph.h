@@ -8,7 +8,7 @@
 class VectorGraph: public Drawable
 {
 public:
-	VectorGraph(Color penColor, float penSize, Color brushColor);
+	VectorGraph(Color255 penColor, float penSize, Color255 brushColor);
 	VectorGraph();
 	~VectorGraph();
 

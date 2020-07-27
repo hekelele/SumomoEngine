@@ -70,15 +70,18 @@
     <ClCompile Include="VectorGraph.cpp">
       <Filter>Rendering\source files</Filter>
     </ClCompile>
+    <ClCompile Include="ResourceLoader.cpp">
+      <Filter>Main\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="SumomoGame.cpp">
+      <Filter>Main\source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Behaviour.h">
       <Filter>Main\header files</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Main\header files</Filter>
-    </ClInclude>
-    <ClInclude Include="main.h">
       <Filter>Main\header files</Filter>
     </ClInclude>
     <ClInclude Include="Transform.h">
@@ -119,6 +122,12 @@
     </ClInclude>
     <ClInclude Include="VectorGraph.h">
       <Filter>Rendering\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceLoader.h">
+      <Filter>Main\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SumomoGame.h">
+      <Filter>Main\header files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

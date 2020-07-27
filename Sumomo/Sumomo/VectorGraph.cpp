@@ -6,7 +6,7 @@ void VectorGraph::Draw(HDC hDC)
 	
 }
 
-VectorGraph::VectorGraph(Color penColor, float penSize, Color brushColor)
+VectorGraph::VectorGraph(Color255 penColor, float penSize, Color255 brushColor)
 {
 	hBrush = CreateSolidBrush(RGB(brushColor.r, brushColor.g, brushColor.b));
 	hPen = CreatePen(PS_SOLID, int(penSize), RGB(penColor.r, penColor.g, penColor.b));

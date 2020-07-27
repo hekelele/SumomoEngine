@@ -1,6 +1,6 @@
 ﻿#include "RenderingManager.h"
 #include <iostream>
-
+using namespace Gdiplus;
 using namespace std;
 
 void RenderingManager::Draw(HDC hDC)

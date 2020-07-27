@@ -1,5 +1,6 @@
 ﻿#include "Drawable.h"
-#include "main.h"
+#include "SumomoGame.h"
+using namespace Sumomo;
 
 void Drawable::Draw(HDC hDC)
 {

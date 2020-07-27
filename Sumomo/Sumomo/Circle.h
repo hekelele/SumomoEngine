@@ -6,7 +6,7 @@ class Circle :
 public:
 	using VectorGraph::VectorGraph;
 
-	Circle(float radius, Color penColor, float penSize, Color brushColor);
+	Circle(float radius, Color255 penColor, float penSize, Color255 brushColor);
 	~Circle();
 
 	float radius;

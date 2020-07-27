@@ -1,5 +1,6 @@
 ﻿#include "Measurable.h"
-#include "main.h"
+#include "SumomoGame.h"
+using namespace Sumomo;
 
 void Measurable::UpdatePhysics()
 {

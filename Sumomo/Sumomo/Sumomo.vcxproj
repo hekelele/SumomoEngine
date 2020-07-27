@@ -150,6 +150,8 @@
     <ClCompile Include="Measurable.cpp" />
     <ClCompile Include="PhysicsManager.cpp" />
     <ClCompile Include="RenderingManager.cpp" />
+    <ClCompile Include="ResourceLoader.cpp" />
+    <ClCompile Include="SumomoGame.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="VectorGraph.cpp" />
   </ItemGroup>
@@ -163,10 +165,11 @@
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="Dynamic.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="main.h" />
     <ClInclude Include="Measurable.h" />
     <ClInclude Include="PhysicsManager.h" />
     <ClInclude Include="RenderingManager.h" />
+    <ClInclude Include="ResourceLoader.h" />
+    <ClInclude Include="SumomoGame.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="VectorGraph.h" />
