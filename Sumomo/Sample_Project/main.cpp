@@ -76,7 +76,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	hWnd = CreateWindow(
 		CLASS_NAME,				// Register Class Name
 		WINDOW_NAME,			// Window Name
-		WS_OVERLAPPEDWINDOW,	// Window Style
+		WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX &~WS_THICKFRAME,	// Window Style
 		WINDOW_POS_X,			// Window position X
 		WINDOW_POS_Y,			// Window position Y
 		SCREEN_WIDTH,			// Window Width
@@ -134,6 +134,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		KillTimer(hWnd, 1);
 		break;
 	case WM_SIZE:
+	case WM_SIZING:
 		cxclient = LOWORD(lParam);
 		cyclient = HIWORD(lParam);
 		break;
@@ -191,6 +192,11 @@ void myPaint(HDC hDC,int xx,int yy) {
 	}
 
 
+	//Graphics graphics(hDC);
+	//graphics.DrawImage(&bmp, 0, 0, xx, yy);
+
 	Graphics graphics(hDC);
-	graphics.DrawImage(&bmp, 0, 0, xx, yy);
+	/*Important! Create a CacheBitmap object for quick drawing*/
+	CachedBitmap cachedBmp(&bmp, &graphics);
+	graphics.DrawCachedBitmap(&cachedBmp, 0, 0);
 }

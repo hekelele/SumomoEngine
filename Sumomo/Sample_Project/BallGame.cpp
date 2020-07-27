@@ -39,10 +39,10 @@ GameObject * BallGame::makeBall(float radius, float e, Vector3 beginVelocity, Ve
 void BallGame::makeGameObjects()
 {
 	GameObject* ball_01, *ball_02, *ball_03, *ball_04;
-	ball_01 = this->makeBall(50, 0.8f, Vector3(4, 3, 0), Vector3(400, 150, 0));
-	ball_02 = this->makeBall(50, 0.8f, Vector3(4, -3, 0), Vector3(400, 450, 0));
+	ball_01 = this->makeBall(50, 1, Vector3(4, 3, 0), Vector3(400, 150, 0));
+	ball_02 = this->makeBall(50, 1, Vector3(4, -3, 0), Vector3(400, 450, 0));
 	ball_03 = this->makeBall(10, 1, Vector3(20, 30, 0), Vector3(100, 50, 0));
-	ball_04 = this->makeBall(100, 0.9f, Vector3(-1, -1.5f, 0), Vector3(200, 300, 0));
+	ball_04 = this->makeBall(100, 1, Vector3(-1, -1.5f, 0), Vector3(200, 300, 0));
 
 
 	GameObjectList.push_back(ball_01);
