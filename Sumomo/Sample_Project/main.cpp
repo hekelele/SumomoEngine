@@ -24,8 +24,8 @@ using namespace Gdiplus;
 
 #define	WINDOW_POS_X	(200)			// Window Coordination X of Upper-Left Corner
 #define	WINDOW_POS_Y	(200)			// Window Coordination Y of Upper-Left Corner
-#define	SCREEN_WIDTH	(800)			// Window Width
-#define	SCREEN_HEIGHT	(600)			// Window Height
+#define	SCREEN_WIDTH	(800+16)			// Window Width
+#define	SCREEN_HEIGHT	(600+39)			// Window Height
 
 #define	ID_TIMER		(120)			// Timer ID
 #define	TIMER_INTERVAL	(1000 / 60)		// Timer Interval
@@ -42,6 +42,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 //*****************************************************************************
 
 SumomoGame* myGame;
+void myPaint(HDC hDC,int xx,int yy);
+
 
 //=============================================================================
 // Main Function
@@ -84,7 +86,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		NULL,
 		hInstance,				// Application Instance Handler
 		NULL);					// Window Data
-	myGame = (SumomoGame*)(new BallGame(hInstance));
+	myGame = (SumomoGame*)(new BallGame(hInstance,800,600));
 	myGame->initGame();
 	
 	// Show Window
@@ -115,10 +117,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	HDC hDC;
-	HDC hMemDC;
 	PAINTSTRUCT ps;
-	HBITMAP hBitmap;
-	HBITMAP hPreBmp;
 	static int t = 0;
 	static int cxclient = 800;
 	static int cyclient = 600;
@@ -141,21 +140,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 	case WM_PAINT:
 		hDC = BeginPaint(hWnd, &ps);
-		hMemDC = CreateCompatibleDC(hDC);
-		hBitmap = CreateCompatibleBitmap(hDC, renderManager.width, renderManager.height);
-		hPreBmp = (HBITMAP)SelectObject(hMemDC, hBitmap);
-
-		if (myGame->isRunning()) {
-			renderManager.Draw(hMemDC);
-		}
-
-
-		SetStretchBltMode(hDC,HALFTONE);
-		StretchBlt(hDC, 0, 0, cxclient, cyclient, hMemDC, 0, 0, 800, 600, SRCCOPY);
-
-		SelectObject(hMemDC, hPreBmp);
-		DeleteObject(hBitmap);
-		DeleteDC(hMemDC);
+		myPaint(hDC,cxclient,cyclient);
 		EndPaint(hWnd, &ps);
 		break;
 
@@ -192,5 +177,20 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		break;
 	}
 	return DefWindowProc(hWnd, uMsg, wParam, lParam);
+}
 
+void myPaint(HDC hDC,int xx,int yy) {
+	Bitmap bmp(800,600);
+
+	Graphics bmpGraphics(&bmp);
+	bmpGraphics.SetSmoothingMode(SmoothingModeAntiAlias);
+
+
+	if (myGame->isRunning()) {
+		renderManager.Draw(&bmpGraphics);
+	}
+
+
+	Graphics graphics(hDC);
+	graphics.DrawImage(&bmp, 0, 0, xx, yy);
 }

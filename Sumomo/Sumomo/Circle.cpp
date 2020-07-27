@@ -4,25 +4,23 @@ Circle::Circle(float _radius, Color255 penColor, float penSize, Color255 brushCo
 	VectorGraph(penColor, penSize, brushColor)
 {
 	this->radius = _radius;
+	this->R = _radius*2;
 }
 
 Circle::~Circle()
 {
 }
 
-void Circle::Draw(HDC hDC)
+void Circle::Draw(Graphics * graphics)
 {
 	if (!this->visible) {
 		return;
 	}
-
-	SelectObject(hDC, hPen);
-	SelectObject(hDC, hBrush);
 	Vector3 pos = this->gameObject->transform.position;
-	Ellipse(hDC, int(pos.x - this->radius),
-		int(pos.y - this->radius),
-		int(pos.x + this->radius),
-		int(pos.y + this->radius));
-	MoveToEx(hDC, int(pos.x), int(pos.y), NULL);
-	LineTo(hDC, int(pos.x), int(pos.y - this->radius));
+	SolidBrush brush(this->brushColor.rgb());
+	Pen pen(this->penColor.rgb(), this->penSize);
+	graphics->FillEllipse(&brush, pos.x-this->radius, pos.y - this->radius,this->R, this->R);
+	graphics->DrawEllipse(&pen, pos.x - this->radius, pos.y - this->radius,this->R, this->R);
+	graphics->DrawLine(&pen, pos.x, pos.y,
+		pos.x, pos.y - this->radius);
 }

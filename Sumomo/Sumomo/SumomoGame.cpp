@@ -12,9 +12,11 @@ namespace Sumomo {
 using namespace Sumomo;
 
 
-SumomoGame::SumomoGame(HINSTANCE hInst)
+SumomoGame::SumomoGame(HINSTANCE hInst, int width, int height)
 {
 	Gdiplus::GdiplusStartup(&m_pGdiToken, &m_gdiplusStartupInput, NULL);
+	renderManager.width = width;
+	renderManager.height = height;
 }
 
 SumomoGame::~SumomoGame()

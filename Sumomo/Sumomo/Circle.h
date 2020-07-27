@@ -9,8 +9,9 @@ public:
 	Circle(float radius, Color255 penColor, float penSize, Color255 brushColor);
 	~Circle();
 
+	float R;
 	float radius;
 
-	void Draw(HDC hDC);
+	void Draw(Graphics* graphics);
 };
 

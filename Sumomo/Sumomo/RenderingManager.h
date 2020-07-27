@@ -2,17 +2,25 @@
 #include <vector>
 #include <Windows.h>
 #include "Drawable.h"
+#include <Gdiplus.h>
+#include "Color.h"
+#pragma comment(lib, "Gdiplus.lib")
+using namespace Gdiplus;
 using namespace std;
 
 class RenderingManager
 {
 public:
+	RenderingManager();
+	~RenderingManager();
+
 	vector<Drawable*> renderingObjects;
-	HDC currentHDC;
 	int width = 800;
 	int height = 600;
-	void Draw(HDC hDC);
+	void Draw(Gdiplus::Graphics* graphics_);
 	void registerBehaviour(Drawable* drw);
 	void withdrawBehaviour(Drawable* drw);
+private:
+	Color255 BackgroundColor;
 };
 

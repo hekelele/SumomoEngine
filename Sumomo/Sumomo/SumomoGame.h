@@ -17,7 +17,7 @@ namespace Sumomo {
 class SumomoGame
 {
 public:
-	SumomoGame(HINSTANCE hInst);
+	SumomoGame(HINSTANCE hInst, int width, int height);
 
 	virtual ~SumomoGame();
 

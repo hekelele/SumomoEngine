@@ -2,29 +2,21 @@
 #include <iostream>
 using namespace Gdiplus;
 using namespace std;
-
-void RenderingManager::Draw(HDC hDC)
+RenderingManager::RenderingManager()
 {
-	int inter = width / 8;
-	HPEN hPen;
-	HBRUSH hBrush;
-	hBrush = CreateSolidBrush(RGB(255, 255, 255));
-	hPen = CreatePen(PS_SOLID, 3 * width / 800, RGB(0, 0, 0));
-	SelectObject(hDC, hPen);
-	SelectObject(hDC, hBrush);
+	this->BackgroundColor = Color255(255, 255, 255);
+}
 
-	//背景
-	Rectangle(hDC, -inter, -inter, width + inter, height + inter);
+RenderingManager::~RenderingManager()
+{
+}
 
-
-	// ペンを削除
-	DeleteObject(hPen);
-	// ブラシを削除
-	DeleteObject(hBrush);
-
-	this->currentHDC = hDC;
+void RenderingManager::Draw(Gdiplus::Graphics* graphics_)
+{
+	SolidBrush brush(Color(BackgroundColor.r, BackgroundColor.g, BackgroundColor.b));
+	graphics_->FillRectangle(&brush, 0, 0, this->width, this->height);
 	for (unsigned int i = 0; i < renderingObjects.size(); i++) {
-		this->renderingObjects[i]->Draw(hDC);
+		this->renderingObjects[i]->Draw(graphics_);
 	}
 }
 

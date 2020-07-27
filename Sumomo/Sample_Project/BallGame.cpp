@@ -8,7 +8,7 @@
 using namespace std;
 using namespace Sumomo;
 
-BallGame::BallGame(HINSTANCE hInst):SumomoGame(hInst)
+BallGame::BallGame(HINSTANCE hInst, int width, int height):SumomoGame(hInst,width,height)
 {
 }
 

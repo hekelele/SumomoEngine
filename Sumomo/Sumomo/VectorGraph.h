@@ -12,10 +12,11 @@ public:
 	VectorGraph();
 	~VectorGraph();
 
-	HPEN hPen;
-	HBRUSH hBrush;
+	float penSize;
+	Color255 penColor;
+	Color255 brushColor;
 
-	void Draw(HDC hDC);
+	void Draw(Graphics* graphics);
 	
 };
 

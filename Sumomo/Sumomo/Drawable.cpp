@@ -1,8 +1,9 @@
 ﻿#include "Drawable.h"
 #include "SumomoGame.h"
+using namespace Gdiplus;
 using namespace Sumomo;
 
-void Drawable::Draw(HDC hDC)
+void Drawable::Draw(Graphics * graphic)
 {
 }
 

@@ -1,25 +1,25 @@
 ﻿#include "VectorGraph.h"
 
 
-void VectorGraph::Draw(HDC hDC)
-{
-	
-}
-
 VectorGraph::VectorGraph(Color255 penColor, float penSize, Color255 brushColor)
 {
-	hBrush = CreateSolidBrush(RGB(brushColor.r, brushColor.g, brushColor.b));
-	hPen = CreatePen(PS_SOLID, int(penSize), RGB(penColor.r, penColor.g, penColor.b));
+	this->penColor = penColor;
+	this->penSize = penSize;
+	this->brushColor = brushColor;
+
 }
 
 VectorGraph::VectorGraph():Drawable()
 {
-	hBrush = CreateSolidBrush(RGB(255, 255, 255));
-	hPen = CreatePen(PS_SOLID, 1, RGB(0, 0, 0));
+	this->penColor = Color255(0, 0, 0);
+	this->penSize = 1;
+	this->brushColor = Color255(255, 255, 255);
 }
 
 VectorGraph::~VectorGraph()
 {
-	DeleteObject(hPen);
-	DeleteObject(hBrush);
+}
+
+void VectorGraph::Draw(Graphics * graphics)
+{
 }
