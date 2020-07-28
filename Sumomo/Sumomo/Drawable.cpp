@@ -9,7 +9,7 @@ using namespace std;
 
 void Drawable::Draw(Graphics * graphic)
 {
-	tranformFromParent(&this->gameObject->transform, graphic);
+	tranformFromParent(this->gameObject->transform.parent, graphic);
 }
 
 Drawable::Drawable()

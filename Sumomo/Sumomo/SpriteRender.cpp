@@ -19,11 +19,33 @@ SpriteRender::~SpriteRender()
 void SpriteRender::Draw(Graphics * graphics)
 {
 	Drawable::Draw(graphics);
+
 	Vector3 t = this->gameObject->transform.position;
-	Rect targetRect(int(t.x+this->pivot.x- this->width/2.0), int(t.y+this->pivot.y-this->height/2.0),
+	Rect targetRect(int(t.x - this->pivot.x), 
+		int(t.y - this->pivot.y),
 		int(this->width), int(this->height));
+
+	graphics->TranslateTransform(t.x, t.y);
+	graphics->RotateTransform(this->gameObject->transform.rotation.z);
+	graphics->TranslateTransform(-t.x, -t.y);
+	
 
 	graphics->DrawImage(this->sourceImage, targetRect, 
 		imageRect.X,imageRect.Y,imageRect.Width,imageRect.Height, UnitPixel);
+
+	Rect r2(int(t.x - 4), int(t.y - 4), 8, 8);
+	SolidBrush b(Color(100, 100, 255));
+	graphics->FillEllipse(&b, r2);
+}
+
+SpriteRender * SpriteRender::setPivot(float x, float y)
+{
+	float xrate, yrate;
+	xrate = float((x - imageRect.X) / (imageRect.Width));
+	yrate = float((y - imageRect.Y) / (imageRect.Height));
+
+	this->pivot = Vector3(xrate*width, yrate*height, 0);
+
+	return this;
 }
 

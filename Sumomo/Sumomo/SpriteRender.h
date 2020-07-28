@@ -9,10 +9,10 @@ public:
 	~SpriteRender();
 
 	virtual void Draw(Graphics* graphics);
-	inline SpriteRender* setPivot(float x, float y) { this->pivot = Vector3(x,y,0); return this; }
+	
 	inline SpriteRender* setSpriteRect(Rect r) { this->imageRect = r; return this; }
 	inline SpriteRender* setSize(float ww, float hh) { this->width = ww; this->height = hh; return this; }
-
+	SpriteRender* setPivot(float x, float y);
 private:
 	Bitmap* sourceImage;
 	Rect imageRect;
