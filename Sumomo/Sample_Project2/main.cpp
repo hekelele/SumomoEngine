@@ -7,8 +7,8 @@
 #include <windows.h>
 #include <math.h>
 #include "SumomoGame.h"
+#include "SpriteGame.h"
 #include <iostream>
-#include "BallGame.h"
 using namespace std;
 using namespace Sumomo;
 
@@ -19,8 +19,8 @@ using namespace Gdiplus;
 //*****************************************************************************
 // Macro
 //*****************************************************************************
-#define	CLASS_NAME		"Physics Simulation"		// Name of Window Class
-#define WINDOW_NAME		"Sample Project"		    // Name of Window
+#define	CLASS_NAME		"Sprite Render"		// Name of Window Class
+#define WINDOW_NAME		"Sample Project2"		    // Name of Window
 
 #define	WINDOW_POS_X	(200)			// Window Coordination X of Upper-Left Corner
 #define	WINDOW_POS_Y	(200)			// Window Coordination Y of Upper-Left Corner
@@ -42,7 +42,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 //*****************************************************************************
 
 SumomoGame* myGame;
-void myPaint(HDC hDC,int xx,int yy);
+void myPaint(HDC hDC, int xx, int yy);
 
 
 //=============================================================================
@@ -76,7 +76,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	hWnd = CreateWindow(
 		CLASS_NAME,				// Register Class Name
 		WINDOW_NAME,			// Window Name
-		WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX &~WS_THICKFRAME,	
+		WS_OVERLAPPEDWINDOW & ~WS_MAXIMIZEBOX &~WS_THICKFRAME,
 		// Window Style
 		WINDOW_POS_X,			// Window position X
 		WINDOW_POS_Y,			// Window position Y
@@ -87,9 +87,9 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		NULL,
 		hInstance,				// Application Instance Handler
 		NULL);					// Window Data
-	myGame = (SumomoGame*)(new BallGame(hInstance,800,600));
+	myGame = (SumomoGame*)(new SpriteGame(hInstance, 800, 600));
 	myGame->initGame();
-	
+
 	// Show Window
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
@@ -142,7 +142,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 	case WM_PAINT:
 		hDC = BeginPaint(hWnd, &ps);
-		myPaint(hDC,cxclient,cyclient);
+		myPaint(hDC, cxclient, cyclient);
 		EndPaint(hWnd, &ps);
 		break;
 
@@ -166,7 +166,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_KEYDOWN:
 		switch (wParam)
 		{
-		case VK_ESCAPE:					
+		case VK_ESCAPE:
 			DestroyWindow(hWnd);
 			break;
 		}
@@ -181,8 +181,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	return DefWindowProc(hWnd, uMsg, wParam, lParam);
 }
 
-void myPaint(HDC hDC,int xx,int yy) {
-	Bitmap bmp(800,600);
+void myPaint(HDC hDC, int xx, int yy) {
+	Bitmap bmp(800, 600);
 
 	Graphics bmpGraphics(&bmp);
 	bmpGraphics.SetSmoothingMode(SmoothingModeAntiAlias);
