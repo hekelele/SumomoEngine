@@ -7,6 +7,9 @@ struct Transform
 	Vector3 rotation;
 	Vector3 scale;
 
+	Transform* parent;
+
 	Transform();
 	
+	Transform* setParenting(Transform* father);
 };

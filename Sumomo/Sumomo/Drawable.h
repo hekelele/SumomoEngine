@@ -3,6 +3,7 @@
 #include "Behaviour.h"
 #include <Gdiplus.h>
 #pragma comment(lib, "Gdiplus.lib")
+#include "Transform.h"
 using namespace Gdiplus;
 
 class Drawable :public Behaviour
@@ -12,5 +13,6 @@ public:
 	int visible;
 	Drawable();
 	virtual ~Drawable();
+	virtual void tranformFromParent(Transform* tpointer, Graphics* g);
 };
 

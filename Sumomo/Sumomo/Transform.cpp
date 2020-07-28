@@ -4,4 +4,11 @@ Transform::Transform() {
 	this->position = Vector3(0, 0, 0);
 	this->rotation = Vector3(0, 0, 0);
 	this->scale = Vector3(1, 1, 1);
+	this->parent = nullptr;
+}
+
+Transform * Transform::setParenting(Transform * father)
+{
+	this->parent = father;
+	return this;
 }

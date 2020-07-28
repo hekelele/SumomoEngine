@@ -16,7 +16,7 @@ public:
 	Color255 penColor;
 	Color255 brushColor;
 
-	void Draw(Graphics* graphics);
+	virtual void Draw(Graphics* graphics);
 	
 };
 

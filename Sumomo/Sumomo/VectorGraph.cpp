@@ -22,4 +22,5 @@ VectorGraph::~VectorGraph()
 
 void VectorGraph::Draw(Graphics * graphics)
 {
+	Drawable::Draw(graphics);
 }

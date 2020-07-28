@@ -17,6 +17,7 @@ void RenderingManager::Draw(Gdiplus::Graphics* graphics_)
 	graphics_->FillRectangle(&brush, 0, 0, this->width, this->height);
 	for (unsigned int i = 0; i < renderingObjects.size(); i++) {
 		this->renderingObjects[i]->Draw(graphics_);
+		graphics_->ResetTransform();
 	}
 }
 

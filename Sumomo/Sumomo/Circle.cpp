@@ -13,6 +13,7 @@ Circle::~Circle()
 
 void Circle::Draw(Graphics * graphics)
 {
+	Drawable::Draw(graphics);
 	if (!this->visible) {
 		return;
 	}
