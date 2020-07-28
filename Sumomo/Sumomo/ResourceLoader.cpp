@@ -7,48 +7,36 @@ ResourceLoader::ResourceLoader() {
 }
 
 ResourceLoader::~ResourceLoader() {
-}
-
-Image * ResourceLoader::findImage(const char * filePath)
-{
-
-	return nullptr;
-}
-
-Image * ResourceLoader::loadImage(const char * filePath)
-{
-	return nullptr;
-}
-
-
-int ResourceLoader::equal_char_array(const char * chara1, const char * chara2)
-{
-	if (chara1 == nullptr || chara2 == nullptr) {
-		return 0;
+	imageResPaths.clear();
+	for (unsigned int i = 0; i < imageRes.size(); i++) {
+		delete imageRes[i];
 	}
+	imageRes.clear();
+}
 
-	char pt1, pt2;
-	int offset1 = 0, offset2 = 0;
-	pt1 = chara1[offset1];
-	pt2 = chara2[offset2];
-	while (pt1!='\0')
-	{
-		if (pt1 != pt2) {
-			return 0;
+Bitmap * ResourceLoader::findImage(const WCHAR* filePath)
+{
+	for (unsigned int i = 0; i < imageResPaths.size(); i++) {
+		if (wcscmp(filePath, imageResPaths[i])) {
+			//cout << "found" << endl;
+			return imageRes[i];
 		}
-		offset1++;
-		offset2++;
-		pt1 = chara1[offset1];
-		pt2 = chara2[offset2];
 	}
-
-	if (pt2!='\0')
-	{
-		return 0;
-	}
-
-	return 1;
+	//cout << "not found" << endl;
+	return nullptr;
 }
 
+Bitmap * ResourceLoader::loadImage(const WCHAR* filePath)
+{
+	Bitmap* old = findImage(filePath);
+	if (old != nullptr) {
+		return old;
+	}
 
+	Bitmap* new_image;
+	new_image = new Bitmap((WCHAR*)filePath);
+	imageRes.push_back(new_image);
+	imageResPaths.push_back(filePath);
+	return new_image;
+}
 

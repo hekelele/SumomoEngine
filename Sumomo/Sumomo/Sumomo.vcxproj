@@ -151,6 +151,7 @@
     <ClCompile Include="PhysicsManager.cpp" />
     <ClCompile Include="RenderingManager.cpp" />
     <ClCompile Include="ResourceLoader.cpp" />
+    <ClCompile Include="SpriteRender.cpp" />
     <ClCompile Include="SumomoGame.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="VectorGraph.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="PhysicsManager.h" />
     <ClInclude Include="RenderingManager.h" />
     <ClInclude Include="ResourceLoader.h" />
+    <ClInclude Include="SpriteRender.h" />
     <ClInclude Include="SumomoGame.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Vector3.h" />

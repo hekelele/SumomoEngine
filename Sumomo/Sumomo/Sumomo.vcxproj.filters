@@ -76,6 +76,9 @@
     <ClCompile Include="SumomoGame.cpp">
       <Filter>Main\source files</Filter>
     </ClCompile>
+    <ClCompile Include="SpriteRender.cpp">
+      <Filter>Rendering\source files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Behaviour.h">
@@ -128,6 +131,9 @@
     </ClInclude>
     <ClInclude Include="SumomoGame.h">
       <Filter>Main\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRender.h">
+      <Filter>Rendering\header files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

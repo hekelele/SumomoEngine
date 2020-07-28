@@ -9,14 +9,13 @@ using namespace std;
 class ResourceLoader
 {
 public:
-	Image* loadImage(const char* filePath);
+	Bitmap* loadImage(const WCHAR* filePath);
 	ResourceLoader();
 	~ResourceLoader();
 private:
-	Image* findImage(const char* filePath);
-	int equal_char_array(const char* chara1, const char* chara2);
-	vector<Image*>		imageRes;
-	vector<const char*> imageResPaths;
+	Bitmap* findImage(const WCHAR* filePath);
+	vector<Bitmap*>		imageRes;
+	vector<const WCHAR*> imageResPaths;
 
 };
 
