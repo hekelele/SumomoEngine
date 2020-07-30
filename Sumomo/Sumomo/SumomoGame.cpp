@@ -21,7 +21,6 @@ SumomoGame::SumomoGame(HINSTANCE hInst, int width, int height)
 
 SumomoGame::~SumomoGame()
 {
-	Gdiplus::GdiplusShutdown(m_pGdiToken);
 }
 
 void SumomoGame::initGame()

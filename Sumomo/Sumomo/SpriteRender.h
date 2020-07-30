@@ -11,6 +11,7 @@ public:
 	virtual void Draw(Graphics* graphics);
 	
 	inline SpriteRender* setSpriteRect(Rect r) { this->imageRect = r; return this; }
+	inline SpriteRender* setSpriteRect(int a, int b, int c, int d) { this->imageRect = Rect(a,b,c,d); return this; }
 	inline SpriteRender* setSize(float ww, float hh) { this->width = ww; this->height = hh; return this; }
 	SpriteRender* setPivot(float x, float y);
 private:

@@ -11,6 +11,7 @@ namespace Sumomo {
 	extern RenderingManager renderManager;
 	extern PhysicsManager   phyManager;
 	extern ResourceLoader   resLoader;
+	extern ULONG_PTR m_pGdiToken;
 	extern vector<GameObject*> GameObjectList;
 }
 

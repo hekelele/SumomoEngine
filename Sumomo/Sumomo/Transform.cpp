@@ -1,4 +1,5 @@
 ﻿#include "Transform.h"
+#include "GameObject.h"
 
 Transform::Transform() {
 	this->position = Vector3(0, 0, 0);
@@ -10,5 +11,11 @@ Transform::Transform() {
 Transform * Transform::setParenting(Transform * father)
 {
 	this->parent = father;
+	return this;
+}
+
+Transform * Transform::setParenting(GameObject * father)
+{
+	this->parent = &father->transform;
 	return this;
 }

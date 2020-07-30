@@ -1,6 +1,11 @@
 ﻿#pragma once
 #include "Vector3.h"
 
+class GameObject;
+
+#ifndef TRANSFORM
+#define TRANSFORM
+
 struct Transform
 {
 	Vector3 position;
@@ -12,4 +17,7 @@ struct Transform
 	Transform();
 	
 	Transform* setParenting(Transform* father);
+	Transform* setParenting(GameObject* father);
 };
+
+#endif

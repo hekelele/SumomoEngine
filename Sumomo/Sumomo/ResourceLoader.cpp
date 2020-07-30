@@ -1,7 +1,9 @@
 ﻿#include "ResourceLoader.h"
 #include <iostream>
+#include "SumomoGame.h"
 
 using namespace std;
+using namespace Sumomo;
 
 ResourceLoader::ResourceLoader() {
 }
@@ -12,6 +14,7 @@ ResourceLoader::~ResourceLoader() {
 		delete imageRes[i];
 	}
 	imageRes.clear();
+	Gdiplus::GdiplusShutdown(m_pGdiToken);
 }
 
 Bitmap * ResourceLoader::findImage(const WCHAR* filePath)

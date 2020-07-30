@@ -28,7 +28,8 @@ void Drawable::tranformFromParent(Transform * tpointer, Graphics* g)
 	if (tpointer == nullptr) {
 		return;
 	}
-	tranformFromParent(tpointer->parent,g);
+	
+	tranformFromParent(tpointer->parent, g);
 
 	Vector3 pp = tpointer->position;
 	Vector3 rp = tpointer->rotation;
