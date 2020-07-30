@@ -15,9 +15,11 @@ struct Transform
 	Transform* parent;
 
 	Transform();
+	Transform(GameObject* gg);
 	
 	Transform* setParenting(Transform* father);
 	Transform* setParenting(GameObject* father);
+	GameObject* gameObject;
 };
 
 #endif

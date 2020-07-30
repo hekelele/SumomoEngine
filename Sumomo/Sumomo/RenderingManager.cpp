@@ -19,6 +19,13 @@ void RenderingManager::Draw(Gdiplus::Graphics* graphics_)
 		this->renderingObjects[i]->Draw(graphics_);
 		graphics_->ResetTransform();
 	}
+	if (debugMode) {
+		for (unsigned int i = 0; i < renderingObjects.size(); i++) {
+			this->renderingObjects[i]->DrawGizmos(graphics_);
+			graphics_->ResetTransform();
+		}
+	}
+	
 }
 
 void RenderingManager::registerBehaviour(Drawable* drw)
@@ -34,6 +41,11 @@ void RenderingManager::withdrawBehaviour(Drawable * drw)
 			return;
 		}
 	}
+}
+
+void RenderingManager::setBackgroundColor(int r, int g, int b)
+{
+	this->BackgroundColor = Color255(r, g, b);
 }
 
 

@@ -12,9 +12,15 @@ void Drawable::Draw(Graphics * graphic)
 	tranformFromParent(this->gameObject->transform.parent, graphic);
 }
 
+void Drawable::DrawGizmos(Graphics * graphic)
+{
+	tranformFromParent(this->gameObject->transform.parent, graphic);
+}
+
 Drawable::Drawable()
 {
 	this->visible = 1;
+	this->gizmo_visible = 0;
 	renderManager.registerBehaviour(this);
 }
 
@@ -28,8 +34,9 @@ void Drawable::tranformFromParent(Transform * tpointer, Graphics* g)
 	if (tpointer == nullptr) {
 		return;
 	}
-	
-	tranformFromParent(tpointer->parent, g);
+	if (tpointer->parent != nullptr) {
+		tranformFromParent(tpointer->parent, g);
+	}
 
 	Vector3 pp = tpointer->position;
 	Vector3 rp = tpointer->rotation;

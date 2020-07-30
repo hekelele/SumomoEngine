@@ -6,6 +6,16 @@ Transform::Transform() {
 	this->rotation = Vector3(0, 0, 0);
 	this->scale = Vector3(1, 1, 1);
 	this->parent = nullptr;
+	this->gameObject = nullptr;
+}
+
+Transform::Transform(GameObject * gg)
+{
+	this->position = Vector3(0, 0, 0);
+	this->rotation = Vector3(0, 0, 0);
+	this->scale = Vector3(1, 1, 1);
+	this->parent = nullptr;
+	this->gameObject = gg;
 }
 
 Transform * Transform::setParenting(Transform * father)

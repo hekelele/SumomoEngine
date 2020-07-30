@@ -5,6 +5,7 @@ using namespace std;
 
 GameObject::GameObject()
 {
+	this->transform = Transform(this);
 }
 
 GameObject::~GameObject()

@@ -9,6 +9,7 @@ public:
 	~SpriteRender();
 
 	virtual void Draw(Graphics* graphics);
+	virtual void DrawGizmos(Graphics* graphics);
 	
 	inline SpriteRender* setSpriteRect(Rect r) { this->imageRect = r; return this; }
 	inline SpriteRender* setSpriteRect(int a, int b, int c, int d) { this->imageRect = Rect(a,b,c,d); return this; }
