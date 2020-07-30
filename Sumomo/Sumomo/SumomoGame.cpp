@@ -50,6 +50,13 @@ void SumomoGame::endGame()
 	deleteGameObjects();
 }
 
+void SumomoGame::updateGame()
+{
+	for (unsigned int i = 0; i < GameObjectList.size(); i++) {
+		GameObjectList[i]->Update();
+	}
+}
+
 void SumomoGame::makeGameObjects()
 {
 }

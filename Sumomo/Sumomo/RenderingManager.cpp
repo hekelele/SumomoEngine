@@ -13,6 +13,7 @@ RenderingManager::~RenderingManager()
 
 void RenderingManager::Draw(Gdiplus::Graphics* graphics_)
 {
+	graphics_->SetInterpolationMode(InterpolationModeBilinear);
 	SolidBrush brush(Color(BackgroundColor.r, BackgroundColor.g, BackgroundColor.b));
 	graphics_->FillRectangle(&brush, 0, 0, this->width, this->height);
 	for (unsigned int i = 0; i < renderingObjects.size(); i++) {

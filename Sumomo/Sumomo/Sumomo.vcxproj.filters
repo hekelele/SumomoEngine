@@ -32,6 +32,15 @@
     <Filter Include="Rendering\source files">
       <UniqueIdentifier>{7baa21ea-3f66-493d-ae8c-3a711bfc2f22}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Animation">
+      <UniqueIdentifier>{616e02fd-b3dc-4e3a-942d-e16336c745df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animation\source files">
+      <UniqueIdentifier>{6807cfd9-6ce5-41eb-a5a3-2bc00cbb045b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animation\header files">
+      <UniqueIdentifier>{d34f90ef-c4c3-4521-a83b-1e2ff60badfa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Behaviour.cpp">
@@ -78,6 +87,15 @@
     </ClCompile>
     <ClCompile Include="SpriteRender.cpp">
       <Filter>Rendering\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Animation\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationClip.cpp">
+      <Filter>Animation\source files</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationTrack.cpp">
+      <Filter>Animation\source files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +152,18 @@
     </ClInclude>
     <ClInclude Include="SpriteRender.h">
       <Filter>Rendering\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>Animation\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationClip.h">
+      <Filter>Animation\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyFrame.h">
+      <Filter>Animation\header files</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationTrack.h">
+      <Filter>Animation\header files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

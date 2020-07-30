@@ -25,6 +25,8 @@ public:
 	virtual void initGame();
 	virtual void resetGame();
 	virtual void endGame();
+	virtual void updateGame();
+	inline virtual void updateTimer(int t) { timerTime = t; };
 
 	virtual void makeGameObjects();
 	virtual void deleteGameObjects();
@@ -33,9 +35,12 @@ public:
 	virtual inline void pauseGame() { this->running = 0; }
 
 	inline int isRunning() { return this->running; }
+	inline int getTime() { return timerTime; }
+
 
 private:
 	int running;
+	int timerTime;
 
 };
 

@@ -155,10 +155,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 		if (myGame->isRunning()) {
 			phyManager.Update();
-			// GameObject(s) Update
-			for (unsigned int i = 0; i < GameObjectList.size(); i++) {
-				GameObjectList[i]->Update();
-			}
+			myGame->updateTimer(t);
+			myGame->updateGame();
 		}
 		break;
 
