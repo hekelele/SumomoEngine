@@ -10,9 +10,12 @@ public:
 	~AnimationClip();
 	void registerTranform(Transform* target, int track);
 	void animate(float time);
+	void record(int track, const Vector3& move, int time);
+	void printAnimation();
+	int isFrameOnTrackValid(int time, int track);
 
 private:
-	AnimationTrack* tracks;
+	AnimationTrack** tracks;
 	int track_count;
 	int animation_length;
 

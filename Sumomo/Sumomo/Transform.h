@@ -20,6 +20,8 @@ struct Transform
 	Transform* setParenting(Transform* father);
 	Transform* setParenting(GameObject* father);
 	GameObject* gameObject;
+
+	Vector3 getAniVector();
 };
 
 #endif

@@ -29,3 +29,8 @@ Transform * Transform::setParenting(GameObject * father)
 	this->parent = &father->transform;
 	return this;
 }
+
+Vector3 Transform::getAniVector()
+{
+	return Vector3(this->position.x,this->position.y,this->rotation.z);
+}

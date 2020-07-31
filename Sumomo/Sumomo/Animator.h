@@ -1,15 +1,16 @@
 ﻿#pragma once
 #include "AnimationClip.h"
 #include "Behaviour.h"
+#include <vector>
 
-class Animator:Behaviour
+class Animator:public Behaviour
 {
 public:
-	Animator();
+	Animator(int tracks, int frames);
 	~Animator();
 
 	Animator* newAnimation(int track, int length);
-	Animator* registerTransform(Transform* target, int track);
+	Animator* putOnTrack(Transform* target);
 
 	void Update();
 
@@ -20,6 +21,16 @@ public:
 
 	void setFrame(float time);
 
+	void addKey2Track(const Vector3& move, int track, int time);
+
+	void printAnimation();
+
+	int isFrameOnTrackValid(int time, int track);
+
+
+	inline int hasClip() { return ac != nullptr; }
+	inline float getTime() { return animation_time; }
+
 private:
 	AnimationClip* ac;
 	int track_coun;
@@ -27,5 +38,6 @@ private:
 	int playing;
 	float playSpeed;
 	float animation_time;
+	vector<Transform*> targets;
 };
 

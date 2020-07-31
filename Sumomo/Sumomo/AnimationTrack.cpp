@@ -1,4 +1,6 @@
 ﻿#include "AnimationTrack.h"
+#include <iostream>
+using namespace std;
 
 AnimationTrack::AnimationTrack(int length)
 {
@@ -6,6 +8,7 @@ AnimationTrack::AnimationTrack(int length)
 	for (int i = 0; i < length; i++) {
 		frames[i] = KeyFrame();
 	}
+	animation_length = length;
 }
 
 AnimationTrack::~AnimationTrack()
@@ -34,6 +37,29 @@ Vector3 AnimationTrack::getLerpAnimation(float time)
 	}
 }
 
+void AnimationTrack::record(const Vector3 & move, int time)
+{
+	Vector3 vn = move;
+	this->frames[time] = KeyFrame(vn.x, vn.y, vn.z, time);
+	this->frames[time].validate();
+}
+
+void AnimationTrack::printKeyFrame(int track, int time)
+{
+	
+	if (this->frames[time].isValid()) {
+		Vector3 vp = this->frames[time].data;
+		cout << "saveKey(" << track << "," << time << ","
+			<< vp.x << "," << vp.y << "," << vp.z << ");" << endl;
+	}
+	
+}
+
+int AnimationTrack::isValid(int time)
+{
+	return this->frames[time].isValid();
+}
+
 KeyFrame * AnimationTrack::findPreFrame(int time)
 {
 	while (time >= 0) {
@@ -52,6 +78,7 @@ KeyFrame * AnimationTrack::findNextFrame(int time)
 			return &this->frames[time];
 		}
 		time++;
+		
 	}
 	return nullptr;
 }
